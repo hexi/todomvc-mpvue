@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import counter from './modules/counter'
+import todoList from './modules/todoList'
 
 Vue.use(Vuex)
 
@@ -10,7 +11,8 @@ const debug = process.env.NODE_ENV !== 'production'
 
 const store = new Vuex.Store({
   modules: {
-    counter
+    counter,
+    todoList
   },
   strict: debug
 })
