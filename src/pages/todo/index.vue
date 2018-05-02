@@ -63,13 +63,15 @@
     flex-flow: column nowrap;
   }
   .scroll-wrapper {
-    height: 880rpx;
+    height: 860rpx;
     margin-top: 5rpx;
+    margin-bottom: 5rpx;
   }
   .item-container {
     align-items: center;
     border-bottom: #aaaaaa solid 2rpx;
-    margin-bottom: 4rpx;
+    padding-top: 4rpx;
+    padding-bottom: 4rpx;
   }
   .item-view {
     text-align: left;
