@@ -1,4 +1,4 @@
-// import wx from 'wx'
+import wx from '../utils/wx'
 import Fly from 'flyio/dist/npm/wx'
 import ParamsBuilder from './paramsBuilder'
 
@@ -6,23 +6,23 @@ const fly = new Fly()
 fly.config.timeout = 10 * 1000
 fly.config.baseURL = 'http://192.168.77.48:8000'
 
-// fly.interceptors.request.use((request) => {
-//   wx.showLoading({title: '拼命加载中...'})
-//   return request
-// })
+fly.interceptors.request.use((request) => {
+  wx.showLoading({title: '拼命加载中...'})
+  return request
+})
 
 fly.interceptors.response.use(
   (response, promise) => {
-    // wx.hideLoading()
+    wx.hideLoading()
     return promise.resolve(response.data)
   },
   (err, promise) => {
-    // wx.hideLoading()
-    // wx.showToast({
-    //   title: err.message,
-    //   icon: 'none'
-    // })
-    return promise.reject(err)
+    wx.hideLoading()
+    wx.showToast({
+      title: err.message,
+      icon: 'none'
+    })
+    return promise.resolve()
   }
 )
 
