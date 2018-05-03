@@ -8,6 +8,11 @@
 # install dependencies
 npm install
 
+# 本地内存模拟服务
+# serve with hot reload at localhost:8080
+npm run dev:local
+
+# 需要访问todo服务
 # serve with hot reload at localhost:8080
 npm run dev
 
