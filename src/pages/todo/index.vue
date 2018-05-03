@@ -1,7 +1,7 @@
 <template>
   <div class="todo-container">
     <div class="weui-cell__bd weui-cell add-item-wrapper">
-      <input class="weui-input addItem" v-model="toAdd" placeholder="请输入文本" />
+      <input class="weui-input addItem" v-model.trim="toAdd" placeholder="请输入文本" />
       <button class="weui-btn mini-btn addBtn" @click="addItem" type="primary" size="mini">添加</button>
     </div>
     <scroll-view scroll-y class="scroll-wrapper">
@@ -38,6 +38,14 @@
         this.todoFilter = filterValue
       },
       addItem () {
+        if (!this.toAdd) {
+          wx.showToast({
+            title: '请输入内容！',
+            duration: 500,
+            icon: 'none'
+          })
+          return
+        }
         this.$store.dispatch('addItem', {title: this.toAdd})
         this.toAdd = ''
       },
