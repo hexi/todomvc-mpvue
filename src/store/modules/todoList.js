@@ -1,4 +1,4 @@
-import TodoApi from '../../api/TodoApi'
+import TodoApi from '../../api/TodoApiFactory'
 
 // initial state
 const state = {
